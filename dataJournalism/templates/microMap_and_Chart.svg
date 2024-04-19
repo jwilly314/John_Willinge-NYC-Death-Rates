@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+
+     <text x="250" y="230" text-anchor="middle">Insert micro page svg here,</text>
+     <text x="250" y="245" text-anchor="middle">which will include a legend and map on the left,</text>
+     <text x="250" y="260" text-anchor="middle">with a text summary below it,</text>
+     <text x="250" y="275" text-anchor="middle">a dotted line splitting the center,</text>
+     <text x="250" y="290" text-anchor="middle">and a line graph on the right,</text>
+     <text x="250" y="305" text-anchor="middle">with a text summary below it as well.</text>
+
+</svg>
