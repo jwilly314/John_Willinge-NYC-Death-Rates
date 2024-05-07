@@ -1,0 +1,61 @@
+<html>
+<head>
+  {% include 'navbar.html' %}
+  <title>About - NYC Mortality by John Willinge</title>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  
+</head>
+<body>
+  <h1 style="text-align: center">NYC Mortality by Borough</h1>
+
+  <p style="text-align: center"> </p>
+
+  <h2 style="text-align: center">Investigation Context</h2>
+  <p style="text-align: center">In my data journalism project, I wanted to look into death rates in NYC, and more specifically, how mortality rates compare between the city's five boroughs. To do this, I used two data sets. The first data set included NYC mortality data by neighbourhood, and the second data set was not available for download as a CSV, but was manually made myself from EpiQuery's NYC Birth and Death data.</p>
+
+  <p style="text-align: center"> </p> 
+
+  <h2 style="text-align: center">Age-adjusted Death rate</h2>
+  
+  <p style="text-align: center">Throughout the feedback I got on my macro and micro page demos, it was a common theme that people wanted me to provide a more detailed description of "age-adjusted death rate," which is the key measurement I'm tracking in my project. Normal death rate per 1000 calculations provide the number of people on average who died in a given year per 1000 people in a population. Age-adjusted death rate differs from normal death rate calculations, as it takes into account differing age averages across different populations. For example, if Brooklyn had far more elderly people than Manhattan, it would likely have a higher standard death rate. By adjusting for age, this would not happen, giving us a better picture of the actual quality of life and health in an area.</p>
+
+  <h2 style="text-align: center">Data-Cleaning Pipeline</h2>
+  <p style="text-align: center">1a. For my first data set, I removed all the columns that contained information I did not plan to use. These included the Time Period, GeoType, GeoID, GeoRank, and Number columns. I also added a column called "Borough," which indicates which borough each community district is in. Instead of using borough names in this column, I numbered the boroughs from 1 to 5 and assigned each area a borough number.</p>
+  <p style="text-align: center">1b. I then divided the numbers in the "Age-adjusted rate per 100,000" by 100 in order to turn it into an "Age-adjusted rate per 1000." I then rounded the results to one decimal place. I did this because the information from my other data set was formatted in "Age-adjusted rate per 1000" and rounded to one decimal place, and I wanted to make the data sets match. My reformat_data.py then dumped these three columns into a json using a for loop.</p>
+  <p style="text-align: center">2. Since there was no CSV available for my second data set, I manually inputted the data from EpiQuery's website into a google sheet. Since I was able to choose what was and was not relevant from the start, there was no unneccesary information, and thus no need to cleanse the data. My reformat_data2.py then dumped the data into a json in a similar manner to reformat_data.py in step one, but I had to modify the code to account for my second data set having many more columns.</p> 
+  <h2 style="text-align: center">My reformat_data.py files:</h2>
+  <div style="text-align:center">    
+    <a href="https://github.com/jwilly314/John_Willinge-NYC-Death-Rates/blob/main/dataJournalism/_data/reformat_data.py">reformat_data.py - data set 1</a>
+  </div>
+  <div style="text-align:center">    
+    <a href="https://github.com/jwilly314/John_Willinge-NYC-Death-Rates/blob/main/dataJournalism/_data/reformat_data2.py">reformat_data2.py - data set 2</a>
+  </div>
+  
+  <p style="text-align: center"> </p> 
+
+  <h1 style="text-align: center">Macro Prototype</h1>
+  <div style="text-align:center">    
+    <img src="images/willingeMacro.jpg" alt="Macro Prototype" width="500" height="333">
+  </div>
+
+  <p style="text-align: center">Goals: In this page, I tried to turn my messy data into an easily understandable and compelling story by simplifying the page down to what I thought were the bare essentials. Instead of providing lots of information and using lots of my data on the macro page, I averaged it out to only show the death rates throughout the five boroughs in a simple red-scale color scheme. I then provided a long summary to help with comprehension of the map. By simplifying the page, I was also able to make everything on it very big, which I hoped would make it easy to process.</p>
+  <p style="text-align: center">Feedback/Takeaways: People were mostly happy with my designs, but someone did comment that a grayish background would fit with the dark atmosphere I've developed with the death theme and red color scheme. I tried to implement that to a degree, but I ended going with a very light shade of gray.</p>
+
+  <p style="text-align: center"> </p> 
+
+  <h1 style="text-align: center">Micro Prototype</h1>
+  <div style="text-align:center">    
+    <img src="images/willingeMicro.jpg" alt="Micro Prototype" width="500" height="333">
+  </div>
+
+  <p style="text-align: center">Goals: In this page, I also tried to turn my messy data into an easily understandable and compelling story by simplifying the page down to what I thought were the bare essentials, but this time, I also included a line graph that shows how death rates in the selected borough have changed over time, and I broke the boroughs down into community districts to provide more detail. Even with more information however, I still kept my design pretty light and simple to make it easy to process. I also made a dotted line go between the map and graph, as I hoped it would prevent people's eyes from going to the right to the next chart before seeing the summary below.</p>
+  <p style="text-align: center">Feedback/Takeaways: Everyone was happy with this page, but the comment on adding a gray color scheme was also applied here.</p>
+
+  <p style="text-align: center"> </p>
+ 
+  {% include 'footer.html' %}
+
+</body>
+</html>
